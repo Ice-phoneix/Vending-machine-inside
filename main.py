@@ -22,4 +22,6 @@ while True:
             pygame.quit()
             #app shutdown
             sys.exit()
+    #display update
+    pygame.display.update()
 
