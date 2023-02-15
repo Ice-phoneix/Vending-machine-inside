@@ -1,6 +1,8 @@
 # frame work and libraries
 import pygame
 import random
+import time
+import datetime
 # framework start
 pygame.init()
 
@@ -37,6 +39,7 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
+    
     
     #Selected drink indicator
     Flashing_light1 = pygame.draw.ellipse(window, Flashlight_off_colour , (1719, 268, Flashlight_size, Flashlight_size))
@@ -77,6 +80,7 @@ while True:
             Flashing_light11 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 719, Flashlight_size, Flashlight_size))
     if drink == 12:
             Flashing_light12 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 719, Flashlight_size, Flashlight_size))
+            
 
 
 
