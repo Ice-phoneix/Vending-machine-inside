@@ -3,6 +3,7 @@ import pygame
 import random
 import time
 import datetime
+import sys
 # framework start
 pygame.init()
 
