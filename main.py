@@ -20,8 +20,11 @@ Flashlight_off_colour = (0, 102, 0)
 Flashlight_on_colour = (0, 255, 0)
 GButton_size = 50
 Rbutton_size = 37
-
-
+Sbutton_middlex = 1740
+Sbutton_middley = 917 
+Lbutton_middlex = 1860
+Lbutton_middley = 917
+Cbuttonr = 25
 
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
@@ -45,6 +48,10 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
+    
+    #Mouse position
+    mouse_position = pygame.mouse.get_pos()
+    
     
     
     #Selected drink indicator
@@ -93,6 +100,9 @@ while True:
     S_cup_innerb = pygame.draw.ellipse(window, Red ,( 1722, 898, Rbutton_size, Rbutton_size)) 
     L_cup_outerb = pygame.draw.ellipse(window, Grey, (1835, 892, GButton_size, GButton_size))                                   
     L_cup_innerb = pygame.draw.ellipse(window, Red , (1842, 898, Rbutton_size, Rbutton_size))
+    
+    if pygame.mouse.get_pressed() and (((x - Sbutton_middlex)** 2) + (y - Sbutton_middley)** 2 < Cbuttonr**2) 
+    
 
 
 
