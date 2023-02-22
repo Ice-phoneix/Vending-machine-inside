@@ -12,6 +12,7 @@ Resolution_X = 1920
 Resolution_Y = 1090
 White = (255, 255, 255)
 Background = pygame.image.load('Images/Game background.jpg')
+Icon = pygame.image.load('Images/Game icon.jpg')
 Flashlight_size = 25
 Flashlight_off_colour = (0, 102, 0)
 Flashlight_on_colour = (0, 255, 0)
@@ -22,6 +23,7 @@ Flashlight_on_colour = (0, 255, 0)
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
+pygame.display.set_icon(Icon)
 
 #window loop
 while True:
