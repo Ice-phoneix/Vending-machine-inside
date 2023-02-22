@@ -10,13 +10,16 @@ pygame.init()
 #Basic parameters
 Resolution_X = 1920
 Resolution_Y = 1090
+Red = (210, 4, 45)
+Grey = (160,160,160)  
 White = (255, 255, 255)
 Background = pygame.image.load('Images/Game background.jpg')
 Icon = pygame.image.load('Images/Game icon.jpg')
 Flashlight_size = 25
 Flashlight_off_colour = (0, 102, 0)
 Flashlight_on_colour = (0, 255, 0)
-
+GButton_size = 50
+Rbutton_size = 37
 
 
 
@@ -83,9 +86,13 @@ while True:
             Flashing_light11 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 719, Flashlight_size, Flashlight_size))
     if drink == 12:
             Flashing_light12 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 719, Flashlight_size, Flashlight_size))
-            
-
-
+      
+      
+      #Cup selection
+    S_cup_outerb = pygame.draw.ellipse(window, Grey ,(1715, 892, GButton_size, GButton_size))
+    S_cup_innerb = pygame.draw.ellipse(window, Red ,( 1722, 898, Rbutton_size, Rbutton_size)) 
+    L_cup_outerb = pygame.draw.ellipse(window, Grey, (1835, 892, GButton_size, GButton_size))                                   
+    L_cup_innerb = pygame.draw.ellipse(window, Red , (1842, 898, Rbutton_size, Rbutton_size))
 
 
 
