@@ -124,7 +124,10 @@ while True:
          window.blit(Scup_load, (700, 500))
         
         
-#def sending_cup:
+def sending_cup:
+    
+    while Lcup
+
     
     
     
