@@ -15,6 +15,8 @@ Grey = (160,160,160)
 White = (255, 255, 255)
 Background = pygame.image.load('Images/Game background.jpg')
 Icon = pygame.image.load('Images/Game icon.jpg')
+Lcup_load = pygame.image.load('Images/Lcup.png')
+Scup_load = pygame.image.load('Images/Scup.png')
 Flashlight_size = 25
 Flashlight_off_colour = (0, 102, 0)
 Flashlight_on_colour = (0, 255, 0)
@@ -25,7 +27,9 @@ Sbutton_middley = 917
 Lbutton_middlex = 1860
 Lbutton_middley = 917
 Cbuttonr = 25
-FPS = 1
+FPS = 10
+showLcup = False
+showScup = False
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -103,10 +107,30 @@ while True:
     S_cup_innerb = pygame.draw.ellipse(window, Red ,( 1722, 898, Rbutton_size, Rbutton_size)) 
     L_cup_outerb = pygame.draw.ellipse(window, Grey, (1835, 892, GButton_size, GButton_size))                                   
     L_cup_innerb = pygame.draw.ellipse(window, Red , (1842, 898, Rbutton_size, Rbutton_size))
+
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 1835 < mpos[0] < 1885 and 892 < mpos[1] < 942:
+            showLcup = True
     
+    if showLcup:
+        window.blit(Lcup_load, (0, 0))
+        
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
         if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
+            showScup = True
+    if showScup:
+        window.blit(Scup_load, (0, 0))
+        
+          
+ 
+            
+            
+    
+    
+    
+  
             
     
 
