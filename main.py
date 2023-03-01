@@ -114,14 +114,23 @@ while True:
             showLcup = True
     
     if showLcup:
-        window.blit(Lcup_load, (0, 0))
+        Lcup = window.blit(Lcup_load, (700, 390))
         
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
         if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
             showScup = True
     if showScup:
-        window.blit(Scup_load, (0, 0))
+         window.blit(Scup_load, (700, 500))
+        
+        
+#def sending_cup:
+    
+    
+    
+    
+    
+        
         
           
  
