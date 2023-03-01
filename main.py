@@ -25,11 +25,15 @@ Sbutton_middley = 917
 Lbutton_middlex = 1860
 Lbutton_middley = 917
 Cbuttonr = 25
-
+FPS = 1
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
 pygame.display.set_icon(Icon)
+
+#FPS clock
+FPSclock = pygame.time.Clock() 
+
 
 #window loop
 while True:
@@ -49,8 +53,7 @@ while True:
     #Background
     window.blit(Background, (0, 0))
     
-    #Mouse position
-    mouse_position = pygame.mouse.get_pos()
+  
     
     
     
@@ -101,7 +104,10 @@ while True:
     L_cup_outerb = pygame.draw.ellipse(window, Grey, (1835, 892, GButton_size, GButton_size))                                   
     L_cup_innerb = pygame.draw.ellipse(window, Red , (1842, 898, Rbutton_size, Rbutton_size))
     
-    if pygame.mouse.get_pressed() and (((x - Sbutton_middlex)** 2) + (y - Sbutton_middley)** 2 < Cbuttonr**2) 
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
+            
     
 
 
@@ -119,4 +125,7 @@ while True:
             
     #display update
     pygame.display.update()
+    
+    #FPS limit
+    FPSclock.tick(FPS)
 
