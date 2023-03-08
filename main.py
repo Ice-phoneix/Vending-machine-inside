@@ -13,6 +13,7 @@ Resolution_Y = 1090
 Red = (210, 4, 45)
 Grey = (160,160,160)  
 White = (255, 255, 255)
+Black = (0, 0, 0)
 Background = pygame.image.load('Images/Game background.jpg')
 Icon = pygame.image.load('Images/Game icon.jpg')
 Lcup_load = pygame.image.load('Images/Lcup.png')
@@ -30,7 +31,9 @@ Cbuttonr = 25
 FPS = 10
 showLcup = False
 showScup = False
-Cups_xpos = 700
+Lcup_xpos = 700
+Scup_xpos = 700
+speed = 50 
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -38,6 +41,17 @@ pygame.display.set_icon(Icon)
 
 #FPS clock
 FPSclock = pygame.time.Clock() 
+
+#subprograms
+
+    #cup sending sub program
+    
+def sending_cup():
+    if showLcup == True:
+        while (Lcup_xpos + 335) > 0: 
+            Lcup_xpos -= speed 
+    
+
 
 
 #window loop
@@ -115,17 +129,28 @@ while True:
             showLcup = True
     
     if showLcup:
-        Lcup = window.blit(Lcup_load, (Cups_xpos, 390))
+        Lcup = window.blit(Lcup_load, (Lcup_xpos, 390))
         
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
         if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
             showScup = True
     if showScup:
-         window.blit(Scup_load, (Cups_xpos, 500))
+         window.blit(Scup_load, (Scup_xpos, 525))
         
-        
-#def sending_cup:
+     #cup sending
+    pygame.draw.rect(window, Grey, (1000, 722, 60, 60))
+    pygame.draw.line(window, Black, [935, 750], [1000, 750], 10)
+    pygame.draw.ellipse(window, Red,(1005,726, 50, 50))
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
+            sending_cup() 
+            
+    
+
+    
     
     
     
