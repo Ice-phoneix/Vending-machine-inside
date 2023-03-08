@@ -30,6 +30,7 @@ Cbuttonr = 25
 FPS = 10
 showLcup = False
 showScup = False
+Cups_xpos = 700
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -114,20 +115,18 @@ while True:
             showLcup = True
     
     if showLcup:
-        Lcup = window.blit(Lcup_load, (700, 390))
+        Lcup = window.blit(Lcup_load, (Cups_xpos, 390))
         
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
         if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
             showScup = True
     if showScup:
-         window.blit(Scup_load, (700, 500))
+         window.blit(Scup_load, (Cups_xpos, 500))
         
         
-def sending_cup:
+#def sending_cup:
     
-    while Lcup
-
     
     
     
