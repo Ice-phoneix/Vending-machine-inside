@@ -31,9 +31,11 @@ Cbuttonr = 25
 FPS = 15
 showLcup = False
 showScup = False
-send = False 
+Lsend = False
+Ssend = False 
 Lcup_xpos = 700
 Scup_xpos = 700
+Lcup_ypos = 390
 speed = 10
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
@@ -44,13 +46,7 @@ pygame.display.set_icon(Icon)
 FPSclock = pygame.time.Clock() 
 
 #subprograms
-
-    #cup sending sub program
-    
-#def sending_cup():
-    #if showLcup == True:
-     #   while (Lcup_xpos + 335) > 0: 
-     #       Lcup_xpos -= speed 
+ 
     
 
 
@@ -72,7 +68,8 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
-    
+    #cups
+
   
     
     
@@ -130,7 +127,9 @@ while True:
             showLcup = True
     
     if showLcup:
-        Lcup = window.blit(Lcup_load, (Lcup_xpos, 390))
+        window.blit(Lcup_load, (Lcup_xpos, Lcup_ypos))
+        
+        
         
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
@@ -147,23 +146,25 @@ while True:
     if event.type == pygame.MOUSEBUTTONDOWN and showLcup == True: 
         mpos = pygame.mouse.get_pos()
         if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
-            send = True 
-    if send == True:
-        if (Lcup_xpos + 335) > 0:
+            Lsend = True 
+    if Lsend == True:
+        if (Lcup_xpos + 206) > 0:
             Lcup_xpos -= speed
-        if (Lcup_xpos + 335) < 10:
-            showLcup = False 
-            send = False 
+        if (Lcup_xpos + 206) < 0: 
+            showLcup = False
+            Lsend = False 
+            Lcup_xpos = 700
     if event.type == pygame.MOUSEBUTTONDOWN and showScup == True:
         mpos = pygame.mouse.get_pos()
         if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
-            send = True 
-    if send == True:
+            Ssend = True 
+    if Ssend == True:
         if (Scup_xpos + 168) > 0:
             Scup_xpos -= speed
         if (Scup_xpos + 168) < 5:
             showScup = False
-            send = False 
+            Ssend = False
+            Scup_xpos = 700
             
     
 
