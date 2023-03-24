@@ -11,6 +11,7 @@ pygame.init()
 Resolution_X = 1920
 Resolution_Y = 1090
 Red = (210, 4, 45)
+Darker_red = (153, 0, 0) 
 Grey = (160,160,160)  
 White = (255, 255, 255)
 Black = (0, 0, 0)
@@ -37,6 +38,7 @@ Lcup_xpos = 700
 Scup_xpos = 700
 Lcup_ypos = 390
 speed = 10
+Drink_button_size = 33
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -166,7 +168,23 @@ while True:
             Ssend = False
             Scup_xpos = 700
             
+    #Drinks making
+        #Buttons
     
+    Water_bS = pygame.draw.ellipse(window, Red, (15, 75, Drink_button_size, Drink_button_size))
+    Water_bL = pygame.draw.ellipse(window, Red, (65, 75, Drink_button_size, Drink_button_size))
+    Milk_bS = pygame.draw.ellipse(window, Red, (122, 75, Drink_button_size, Drink_button_size))
+    Milk_bL = pygame.draw.ellipse(window, Red, (175, 75, Drink_button_size, Drink_button_size))
+    Coffe_bS = pygame.draw.ellipse(window, Red, (240, 75, Drink_button_size, Drink_button_size))
+    Coffe_bL = pygame.draw.ellipse(window, Red, (295, 75, Drink_button_size, Drink_button_size))
+    Choco_bS = pygame.draw.ellipse(window, Red, (360, 75, Drink_button_size, Drink_button_size))
+    Choco_bL = pygame.draw.ellipse(window, Red, (415, 75, Drink_button_size, Drink_button_size))
+    Gtea_bS = pygame.draw.ellipse(window, Red, (484, 75, Drink_button_size, Drink_button_size))
+    Gtea_bL = pygame.draw.ellipse(window, Red, (540, 75, Drink_button_size, Drink_button_size))
+    Blacktea_bS = pygame.draw.ellipse(window, Red, (610, 75, Drink_button_size, Drink_button_size))
+    Blacktea_bL = pygame.draw.ellipse(window, Red, (664, 75, Drink_button_size, Drink_button_size))
+    Juice_bS = pygame.draw.ellipse(window, Red, (730, 75, Drink_button_size, Drink_button_size))
+    Juice_bL = pygame.draw.ellipse(window, Red, (785, 75, Drink_button_size, Drink_button_size))
 
     
     
