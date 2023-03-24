@@ -6,6 +6,7 @@ import datetime
 import sys
 # framework start
 pygame.init()
+pygame.font.init()
 
 #Basic parameters
 Resolution_X = 1920
@@ -38,7 +39,9 @@ Lcup_xpos = 700
 Scup_xpos = 700
 Lcup_ypos = 390
 speed = 10
-Drink_button_size = 33
+Drink_button_size = 34
+my_font = pygame.font.SysFont('arial', 30)
+
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -70,7 +73,8 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
-    #cups
+    
+ 
 
   
     
@@ -185,8 +189,30 @@ while True:
     Blacktea_bL = pygame.draw.ellipse(window, Red, (664, 75, Drink_button_size, Drink_button_size))
     Juice_bS = pygame.draw.ellipse(window, Red, (730, 75, Drink_button_size, Drink_button_size))
     Juice_bL = pygame.draw.ellipse(window, Red, (785, 75, Drink_button_size, Drink_button_size))
-
     
+    WaterS = my_font.render('S', False, (0, 0, 0))
+    window.blit(WaterS, (22,40))
+        
+    MilkS = my_font.render('S', False, (0, 0, 0))
+    window.blit(MilkS, (129, 40))
+    
+    CoffeS = my_font.render('S', False, (0, 0, 0))
+    window.blit(CoffeS, (247, 40))
+    
+    ChocoS = my_font.render('S', False, (0, 0, 0))
+    window.blit(ChocoS, (367, 40))
+    
+    GteaS = my_font.render('S', False, (0, 0, 0))
+    window.blit(GteaS, (491, 40))
+    
+    BteaS = my_font.render('S', False, (0, 0, 0))
+    window.blit(BteaS, ( 617, 40))
+    
+    JuiceS = my_font.render('S', False, (0, 0, 0))
+    window.blit(JuiceS, (737, 40))
+    
+    WaterL = my_font.render('L', False, (0, 0, 0))
+    window.blit(WaterL, (72, 40))
     
     
     
