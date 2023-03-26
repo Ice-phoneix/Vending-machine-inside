@@ -42,6 +42,35 @@ speed = 10
 Drink_button_size = 34
 my_font = pygame.font.SysFont('arial', 30)
 
+Water_bS = True 
+Water_bL = True 
+Milk_bS = True 
+Milk_bL = True 
+Coffe_bS = True 
+Coffe_bL = True 
+Choco_bS = True 
+Choco_bL = True 
+Gtea_bS = True 
+Gtea_bL = True 
+Blacktea_bS = True 
+Blacktea_bL = True 
+Juice_bS = True 
+Juice_bL = True
+
+Water_bS_ON = False  
+Water_bL_ON = False 
+Milk_bS_ON = False 
+Milk_bL_ON = False 
+Coffe_bS_ON = False 
+Coffe_bL_ON = False 
+Choco_bS_ON = False 
+Choco_bL_ON = False 
+Gtea_bS_ON = False 
+Gtea_bL_ON = False
+Blacktea_bS_ON = False 
+Blacktea_bL_ON = False
+Juice_bS_ON = False 
+Juice_bL_ON = False 
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -174,65 +203,102 @@ while True:
             
     #Drinks making
         #Buttons
-    
-    Water_bS = pygame.draw.ellipse(window, Red, (15, 75, Drink_button_size, Drink_button_size))
-    Water_bL = pygame.draw.ellipse(window, Red, (65, 75, Drink_button_size, Drink_button_size))
-    Milk_bS = pygame.draw.ellipse(window, Red, (122, 75, Drink_button_size, Drink_button_size))
-    Milk_bL = pygame.draw.ellipse(window, Red, (175, 75, Drink_button_size, Drink_button_size))
-    Coffe_bS = pygame.draw.ellipse(window, Red, (240, 75, Drink_button_size, Drink_button_size))
-    Coffe_bL = pygame.draw.ellipse(window, Red, (295, 75, Drink_button_size, Drink_button_size))
-    Choco_bS = pygame.draw.ellipse(window, Red, (360, 75, Drink_button_size, Drink_button_size))
-    Choco_bL = pygame.draw.ellipse(window, Red, (415, 75, Drink_button_size, Drink_button_size))
-    Gtea_bS = pygame.draw.ellipse(window, Red, (484, 75, Drink_button_size, Drink_button_size))
-    Gtea_bL = pygame.draw.ellipse(window, Red, (540, 75, Drink_button_size, Drink_button_size))
-    Blacktea_bS = pygame.draw.ellipse(window, Red, (610, 75, Drink_button_size, Drink_button_size))
-    Blacktea_bL = pygame.draw.ellipse(window, Red, (664, 75, Drink_button_size, Drink_button_size))
-    Juice_bS = pygame.draw.ellipse(window, Red, (730, 75, Drink_button_size, Drink_button_size))
-    Juice_bL = pygame.draw.ellipse(window, Red, (785, 75, Drink_button_size, Drink_button_size))
-    
-    WaterS = my_font.render('S', False, (0, 0, 0))
-    window.blit(WaterS, (22,40))
+    if Water_bS == True:
+        pygame.draw.ellipse(window, Red, (15, 75, Drink_button_size, Drink_button_size))
+    if Water_bL == True:
+        pygame.draw.ellipse(window, Red, (65, 75, Drink_button_size, Drink_button_size))
+    if Milk_bS == True:
+        pygame.draw.ellipse(window, Red, (122, 75, Drink_button_size, Drink_button_size))
+    if Milk_bL == True:
+        pygame.draw.ellipse(window, Red, (175, 75, Drink_button_size, Drink_button_size))
+    if Coffe_bS == True:
+        pygame.draw.ellipse(window, Red, (240, 75, Drink_button_size, Drink_button_size))
+    if Coffe_bL == True:
+        pygame.draw.ellipse(window, Red, (295, 75, Drink_button_size, Drink_button_size))
+    if Choco_bS == True:
+        pygame.draw.ellipse(window, Red, (360, 75, Drink_button_size, Drink_button_size))
+    if Choco_bL == True:
+        pygame.draw.ellipse(window, Red, (415, 75, Drink_button_size, Drink_button_size))
+    if Gtea_bS == True:
+        pygame.draw.ellipse(window, Red, (484, 75, Drink_button_size, Drink_button_size))
+    if Gtea_bL == True:
+        pygame.draw.ellipse(window, Red, (540, 75, Drink_button_size, Drink_button_size))
+    if Blacktea_bS == True:
+        pygame.draw.ellipse(window, Red, (610, 75, Drink_button_size, Drink_button_size))
+    if Blacktea_bL == True:
+        pygame.draw.ellipse(window, Red, (664, 75, Drink_button_size, Drink_button_size))
+    if Juice_bS == True:
+        pygame.draw.ellipse(window, Red, (730, 75, Drink_button_size, Drink_button_size))
+    if Juice_bL == True:
+        pygame.draw.ellipse(window, Red, (785, 75, Drink_button_size, Drink_button_size))
         
+        
+    if Water_bS_ON == True :
+        pygame.draw.ellipse(window, Darker_red, (15, 75, Drink_button_size, Drink_button_size))
+    if Water_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (65, 75, Drink_button_size, Drink_button_size))
+    if Milk_bS_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (122, 75, Drink_button_size, Drink_button_size))
+    if Milk_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (175, 75, Drink_button_size, Drink_button_size))
+    if Coffe_bS_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (240, 75, Drink_button_size, Drink_button_size))
+    if Coffe_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (295, 75, Drink_button_size, Drink_button_size))
+    if Choco_bS_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (360, 75, Drink_button_size, Drink_button_size))
+    if Choco_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (415, 75, Drink_button_size, Drink_button_size))
+    if Gtea_bS_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (484, 75, Drink_button_size, Drink_button_size))
+    if Gtea_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (540, 75, Drink_button_size, Drink_button_size))
+    if Blacktea_bS_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (610, 75, Drink_button_size, Drink_button_size))
+    if Blacktea_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (664, 75, Drink_button_size, Drink_button_size))
+    if Juice_bS_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (730, 75, Drink_button_size, Drink_button_size))
+    if Juice_bL_ON == True:
+        pygame.draw.ellipse(window, Darker_red, (785, 75, Drink_button_size, Drink_button_size))
+
+    WaterS = my_font.render('S', False, (0, 0, 0))
+    window.blit(WaterS, (22,40))    
     MilkS = my_font.render('S', False, (0, 0, 0))
-    window.blit(MilkS, (129, 40))
-    
+    window.blit(MilkS, (129, 40))  
     CoffeS = my_font.render('S', False, (0, 0, 0))
-    window.blit(CoffeS, (247, 40))
-    
+    window.blit(CoffeS, (247, 40))   
     ChocoS = my_font.render('S', False, (0, 0, 0))
-    window.blit(ChocoS, (367, 40))
-    
+    window.blit(ChocoS, (367, 40))    
     GteaS = my_font.render('S', False, (0, 0, 0))
     window.blit(GteaS, (491, 40))
-    
     BteaS = my_font.render('S', False, (0, 0, 0))
     window.blit(BteaS, (617, 40))
-    
     JuiceS = my_font.render('S', False, (0, 0, 0))
     window.blit(JuiceS, (737, 40))
-    
     WaterL = my_font.render('L', False, (0, 0, 0))
     window.blit(WaterL, (74, 40))
-    
     MilkL = my_font.render('L', False, (0, 0, 0))
     window.blit(MilkL, (185, 40))
-    
     CoffeL = my_font.render('L', False, (0, 0, 0))
     window.blit(CoffeL, (305, 40))
-    
     ChocoL = my_font.render('L', False, (0, 0, 0))
     window.blit(ChocoL, (425, 40))
-    
     GteaL = my_font.render('L', False, (0, 0, 0))
     window.blit(GteaL, (550, 40))
-    
     BteaL = my_font.render('L', False, (0, 0, 0))
     window.blit(BteaL, (673, 40))
-    
     JuiceL = my_font.render('L', False, (0, 0, 0))
     window.blit(JuiceL, (794, 40))
     
-    
+    #On / off buttons
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 15 < mpos[0] < 49 and 40 < mpos[1] < 74:
+            Water_bS_ON = True
+            Water_bS = False
+
+        
     
     
     
