@@ -206,13 +206,34 @@ while True:
     window.blit(GteaS, (491, 40))
     
     BteaS = my_font.render('S', False, (0, 0, 0))
-    window.blit(BteaS, ( 617, 40))
+    window.blit(BteaS, (617, 40))
     
     JuiceS = my_font.render('S', False, (0, 0, 0))
     window.blit(JuiceS, (737, 40))
     
     WaterL = my_font.render('L', False, (0, 0, 0))
-    window.blit(WaterL, (72, 40))
+    window.blit(WaterL, (74, 40))
+    
+    MilkL = my_font.render('L', False, (0, 0, 0))
+    window.blit(MilkL, (185, 40))
+    
+    CoffeL = my_font.render('L', False, (0, 0, 0))
+    window.blit(CoffeL, (305, 40))
+    
+    ChocoL = my_font.render('L', False, (0, 0, 0))
+    window.blit(ChocoL, (425, 40))
+    
+    GteaL = my_font.render('L', False, (0, 0, 0))
+    window.blit(GteaL, (550, 40))
+    
+    BteaL = my_font.render('L', False, (0, 0, 0))
+    window.blit(BteaL, (673, 40))
+    
+    JuiceL = my_font.render('L', False, (0, 0, 0))
+    window.blit(JuiceL, (794, 40))
+    
+    
+    
     
     
     
