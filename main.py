@@ -294,10 +294,21 @@ while True:
     #On / off buttons
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
-        if 15 < mpos[0] < 49 and 40 < mpos[1] < 74:
+        if 15 < mpos[0] < 49 and 75 < mpos[1] < 109:
             Water_bS_ON = True
             Water_bS = False
-
+        if Water_bL_ON == True:
+            Water_bL = True
+            Water_bL_ON = False
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 65 < mpos[0] < 99 and 75 < mpos[1] < 109:
+            Water_bL_ON = True
+            Water_bL = False
+        if Water_bS_ON == True:
+            Water_bS = True 
+            Water_bS_ON = False 
+    
         
     
     
