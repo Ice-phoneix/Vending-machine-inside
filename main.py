@@ -70,7 +70,8 @@ Gtea_bL_ON = False
 Blacktea_bS_ON = False 
 Blacktea_bL_ON = False
 Juice_bS_ON = False 
-Juice_bL_ON = False 
+Juice_bL_ON = False
+nbutton = False 
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -107,7 +108,7 @@ while True:
 
   
     
-    
+  
     
     #Selected drink indicator
     Flashing_light1 = pygame.draw.ellipse(window, Flashlight_off_colour , (1719, 268, Flashlight_size, Flashlight_size))
@@ -123,30 +124,41 @@ while True:
     Flashing_light11 = pygame.draw.ellipse(window, Flashlight_off_colour , (1719, 719, Flashlight_size, Flashlight_size))
     Flashing_light12 = pygame.draw.ellipse(window, Flashlight_off_colour , (1831, 719, Flashlight_size, Flashlight_size))
     
-    drink = (random.randint(1,12))
-    if drink == 1:
-        Flashing_light1 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 268, Flashlight_size, Flashlight_size))
-    if drink == 2:
+    
+    #Next button
+    Next_button = pygame.draw.ellipse(window, Red, (1788, 810, 35 , 35))
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 1788 < mpos[0] < 1823 and 810 < mpos[1] < 845:
+            nbutton = True 
+            drink = random.randint(1,12)
+
+
+    if nbutton == True:
+        
+        if drink == 1:
+            Flashing_light1 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 268, Flashlight_size, Flashlight_size))
+        if drink == 2:
             Flashing_light2 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 268, Flashlight_size, Flashlight_size))
-    if drink == 3:
+        if drink == 3:
             Flashing_light3 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 355, Flashlight_size, Flashlight_size))
-    if drink == 4:
+        if drink == 4:
             Flashing_light4 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 355, Flashlight_size, Flashlight_size))
-    if drink == 5:
+        if drink == 5:
             Flashing_light5 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 445, Flashlight_size, Flashlight_size))
-    if drink == 6:
+        if drink == 6:
             Flashing_light6 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 445, Flashlight_size, Flashlight_size))
-    if drink == 7:
+        if drink == 7:
             Flashing_light7 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 537, Flashlight_size, Flashlight_size))
-    if drink == 8:
+        if drink == 8:
             Flashing_light8 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 537, Flashlight_size, Flashlight_size))
-    if drink == 9:
+        if drink == 9:
             Flashing_light9 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 626, Flashlight_size, Flashlight_size))
-    if drink == 10:
+        if drink == 10:
             Flashing_light10 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 626, Flashlight_size, Flashlight_size))
-    if drink == 11:
+        if drink == 11:
             Flashing_light11 = pygame.draw.ellipse(window, Flashlight_on_colour , (1719, 719, Flashlight_size, Flashlight_size))
-    if drink == 12:
+        if drink == 12:
             Flashing_light12 = pygame.draw.ellipse(window, Flashlight_on_colour , (1831, 719, Flashlight_size, Flashlight_size))
       
       
@@ -187,7 +199,8 @@ while True:
             Lcup_xpos -= speed
         if (Lcup_xpos + 206) < 0: 
             showLcup = False
-            Lsend = False 
+            Lsend = False
+            nbutton = False 
             Lcup_xpos = 700
     if event.type == pygame.MOUSEBUTTONDOWN and showScup == True:
         mpos = pygame.mouse.get_pos()
@@ -199,6 +212,7 @@ while True:
         if (Scup_xpos + 168) < 5:
             showScup = False
             Ssend = False
+            nbutton = False 
             Scup_xpos = 700
             
     #Drinks making
