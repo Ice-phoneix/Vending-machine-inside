@@ -71,7 +71,8 @@ Blacktea_bS_ON = False
 Blacktea_bL_ON = False
 Juice_bS_ON = False 
 Juice_bL_ON = False
-nbutton = False 
+nbutton = False
+Off_button = 15
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -415,7 +416,16 @@ while True:
             Juice_bL = False
             Juice_bS = True
             Juice_bS_ON = False
-            
+    
+    #Turn off button for drink maker
+    pygame.draw.ellipse(window, Red, (49.5, 100, Off_button, Off_button))
+    pygame.draw.ellipse(window, Red, (158, 100, Off_button, Off_button))
+    pygame.draw.ellipse(window, Red, (277, 100, Off_button, Off_button))
+    pygame.draw.ellipse(window, Red, (397, 100, Off_button, Off_button))
+    pygame.draw.ellipse(window, Red, (521.5, 100, Off_button, Off_button))
+
+    
+    
             
             
             
