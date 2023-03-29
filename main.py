@@ -13,7 +13,7 @@ Resolution_X = 1920
 Resolution_Y = 1090
 Red = (210, 4, 45)
 Darker_red = (153, 0, 0) 
-Grey = (160,160,160)  
+Grey = (160,160,160) 
 White = (255, 255, 255)
 Black = (0, 0, 0)
 Background = pygame.image.load('Images/Game background.jpg')
@@ -311,7 +311,6 @@ while True:
         if 15 < mpos[0] < 49 and 75 < mpos[1] < 109:
             Water_bS_ON = True
             Water_bS = False
-        if Water_bL_ON == True:
             Water_bL = True
             Water_bL_ON = False
     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -319,9 +318,111 @@ while True:
         if 65 < mpos[0] < 99 and 75 < mpos[1] < 109:
             Water_bL_ON = True
             Water_bL = False
-        if Water_bS_ON == True:
             Water_bS = True 
-            Water_bS_ON = False 
+            Water_bS_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 122 < mpos[0] < 156 and 75 < mpos[1] < 109:
+            Milk_bS_ON = True
+            Milk_bS = False
+            Milk_bL = True
+            Milk_bL_ON = False
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 175 < mpos[0] < 209 and 75 < mpos[1] < 109:
+            Milk_bL_ON = True
+            Milk_bL = False
+            Milk_bS = True
+            Milk_bS_ON = False
+
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 240 < mpos[0] < 274 and 75 < mpos[1] < 109:
+            Coffe_bS_ON = True
+            Coffe_bS = False
+            Coffe_bL = True
+            Coffe_bL_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 295 < mpos[0] < 329 and 75 < mpos[1] < 109:
+            Coffe_bL_ON = True
+            Coffe_bL = False
+            Coffe_bS = True
+            Coffe_bS_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 360 < mpos[0] < 394 and 75 < mpos[1] < 109:
+            Choco_bS_ON = True
+            Choco_bS = False
+            Choco_bL = True
+            Choco_bL_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 415 < mpos[0] < 449 and 75 < mpos[1] < 109:
+            Choco_bL_ON = True
+            Choco_bL = False
+            Choco_bS = True
+            Choco_bS_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 484 < mpos[0] < 518 and 75 < mpos[1] < 109:
+            Gtea_bS_ON = True
+            Gtea_bS = False
+            Gtea_bL = True
+            Gtea_bL_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 540 < mpos[0] < 574 and 75 < mpos[1] < 109:
+            Gtea_bL_ON = True
+            Gtea_bL = False
+            Gtea_bS = True
+            Gtea_bS_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 610 < mpos[0] < 644 and 75 < mpos[1] < 109:
+            Blacktea_bS_ON = True
+            Blacktea_bS = False
+            Blacktea_bL = True
+            Blacktea_bL_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 664 < mpos[0] < 698 and 75 < mpos[1] < 109:
+            Blacktea_bL_ON = True
+            Blacktea_bL = False
+            Blacktea_bS = True
+            Blacktea_bS_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 730 < mpos[0] < 764 and 75 < mpos[1] < 109:
+            Juice_bS_ON = True
+            Juice_bS = False
+            Juice_bL = True
+            Juice_bL_ON = False
+
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 785 < mpos[0] < 819 and 75 < mpos[1] < 109:
+            Juice_bL_ON = True
+            Juice_bL = False
+            Juice_bS = True
+            Juice_bS_ON = False
+            
+            
+            
+            
+    
+    
+         
+    
     
         
     
