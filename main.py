@@ -423,6 +423,67 @@ while True:
     pygame.draw.ellipse(window, Red, (277, 100, Off_button, Off_button))
     pygame.draw.ellipse(window, Red, (397, 100, Off_button, Off_button))
     pygame.draw.ellipse(window, Red, (521.5, 100, Off_button, Off_button))
+    pygame.draw.ellipse(window, Red, (646.5, 100, Off_button, Off_button))
+    pygame.draw.ellipse(window, Red, (767, 100, Off_button, Off_button))
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 49.5 < mpos[0] < 64.5 and 100 < mpos[1] < 115:
+            Water_bL = True
+            Water_bL_ON = False
+            Water_bS = True
+            Water_bS_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 158 < mpos[0] < 173 and 100 < mpos[1] < 115:
+            Milk_bL = True
+            Milk_bL_ON = False
+            Milk_bS = True
+            Milk_bS_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 277 < mpos[0] < 292 and 100 < mpos[1] < 115:
+            Coffe_bL = True
+            Coffe_bL_ON = False
+            Coffe_bS = True
+            Coffe_bS_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 397 < mpos[0] < 412 and 100 < mpos[1] < 115:
+            Choco_bL = True
+            Choco_bL_ON = False
+            Choco_bS = True
+            Choco_bS_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 521.5 < mpos[0] < 536.5 and 100 < mpos[1] < 115:
+            Gtea_bL = True
+            Gtea_bL_ON = False
+            Gtea_bS = True
+            Gtea_bS_ON = False
+            
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 646.5 < mpos[0] < 661.5 and 100 < mpos[1] < 115:
+            Blacktea_bL = True
+            Blacktea_bL_ON = False
+            Blacktea_bS = True
+            Blacktea_bS_ON = False
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 767 < mpos[0] < 782 and 100 < mpos[1] < 115:
+            Juice_bL = True
+            Juice_bL_ON = False
+            Juice_bS = True
+            Juice_bS_ON = False 
+
+            
+
 
     
     
