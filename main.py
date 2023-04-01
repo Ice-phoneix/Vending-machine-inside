@@ -73,6 +73,7 @@ Juice_bS_ON = False
 Juice_bL_ON = False
 nbutton = False
 Off_button = 15
+Make_BY = 350
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -483,13 +484,22 @@ while True:
             Juice_bS_ON = False 
 
             
-
-
+    #Make
+    pygame.draw.rect(window, Grey, (925, 250, 75, 75))
+    pygame.draw.ellipse(window, Red, (933, 257, 60,60))
+    Make_B = my_font.render('Make', False, (0, 0, 0))
+    window.blit(Make_B, (925, 320))
+    pygame.draw.line(window, Black, [825, 290], [925, 290], 7)
+    pygame.draw.line(window, Black, [813.5, 290], [813.5, Make_BY], 30)
     
     
-            
-            
-            
+    
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mpos = pygame.mouse.get_pos()
+        if 933 < mpos[0] < 993 and 257 < mpos[1] < 317:
+            if Water_bS_ON == True and Coffe_bS_ON == True and Milk_bS_ON == True:
+                if showScup == True:
+                    Make_
     
     
          
