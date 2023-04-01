@@ -74,6 +74,15 @@ Juice_bL_ON = False
 nbutton = False
 Off_button = 15
 Make_BY = 350
+Makerspeed = 5
+Maker_Down_S = False
+
+
+
+
+
+
+
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -499,7 +508,29 @@ while True:
         if 933 < mpos[0] < 993 and 257 < mpos[1] < 317:
             if Water_bS_ON == True and Coffe_bS_ON == True and Milk_bS_ON == True:
                 if showScup == True:
-                    Make_
+                    Maker_Down_S = True
+            if Water_bS_ON == True and Gtea_bS_ON == True:
+                if showScup == True:
+                    Maker_Down_S = True
+            if Water_bS_ON == True  and Choco_bS_ON == True:
+                if showScup == True:
+                    Maker_Down_S = True
+            if Juice_bS_ON == True:
+                if showScup == True:
+                    Maker_Down_S = True
+            if Water_bS_ON == True  and Blacktea_bS_ON == True:
+                if showScup == True:
+                    Maker_Down_S = True
+            if Water_bS_ON == True and Coffe_bS_ON == True:
+                if showScup == True:
+                    Maker_Down_S = True
+                
+            
+                    
+    
+    if Maker_Down_S == True:
+        if Make_BY <= 540:
+            Make_BY += Makerspeed
     
     
          
