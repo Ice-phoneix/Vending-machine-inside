@@ -20,6 +20,7 @@ Background = pygame.image.load('Images/Game background.jpg')
 Icon = pygame.image.load('Images/Game icon.jpg')
 Lcup_load = pygame.image.load('Images/Lcup.png')
 Scup_load = pygame.image.load('Images/Scup.png')
+Malfuction_image = pygame.image.load('Images/Malfuction.png') 
 Flashlight_size = 25
 Flashlight_off_colour = (0, 102, 0)
 Flashlight_on_colour = (0, 255, 0)
@@ -80,8 +81,9 @@ Maker_Down_L = False
 Miliseconds_S = 1000
 Maker_UP = pygame.USEREVENT + 1
 MAKER_UPP = False 
-
-
+Money = 999
+Malfuction_message = 'Something'
+Malfuction_show = True 
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -92,7 +94,13 @@ FPSclock = pygame.time.Clock()
 
 #subprograms
  
-    
+def Malfuction():
+    window.blit(Malfuction_image, (1050, 350)) 
+    pygame.draw.rect(window, Red,(1177, 532, 301, 99))
+    Repair_message = my_font.render('Repair', False, (0, 0, 0))
+    window.blit(Repair_message, (1275,550))
+    Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
+    window.blit(Repair_cost, (1275, 580))
 
 
 
@@ -113,12 +121,24 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
-    
- 
+        
 
-  
     
-  
+    if Malfuction_show == True:
+        window.blit(Malfuction_image, (1050, 350))
+        pygame.draw.rect(window, Red,(1177, 532, 301, 99))
+        Repair_message = my_font.render('Repair', False, (0, 0, 0))
+        window.blit(Repair_message, (1275,550))
+        Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
+        window.blit(Repair_cost, (1275, 580))
+    if event.type == pygame.MOUSEBUTTONDOWN and Malfuction_show == True:
+        mpos = pygame.mouse.get_pos()
+        if 1177 < mpos[0] < 1478 and 532 < mpos[1] < 631:
+            if Money > 10:
+                Malfuction_show = False 
+                
+                
+    
     
     #Selected drink indicator
     Flashing_light1 = pygame.draw.ellipse(window, Flashlight_off_colour , (1719, 268, Flashlight_size, Flashlight_size))
@@ -562,13 +582,7 @@ while True:
             if Make_BY <= 300:
                 MAKER_UPP = False 
                 
-    
-
-       
-    
-        
-            
-            
+               
     if Maker_Down_L == True:
         if Make_BY <= 412:
             Make_BY += Makerspeed
@@ -584,7 +598,11 @@ while True:
         if Make_BY >= 300:
             Make_BY -= Makerspeed
             if Make_BY <= 300:
-                MAKER_UPP = False 
+                MAKER_UPP = False
+                
+                
+                
+                al
     
     
          
