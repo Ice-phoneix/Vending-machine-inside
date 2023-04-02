@@ -95,14 +95,20 @@ FPSclock = pygame.time.Clock()
 #subprograms
  
 def Malfuction():
-    window.blit(Malfuction_image, (1050, 350)) 
-    pygame.draw.rect(window, Red,(1177, 532, 301, 99))
-    Repair_message = my_font.render('Repair', False, (0, 0, 0))
-    window.blit(Repair_message, (1275,550))
-    Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
-    window.blit(Repair_cost, (1275, 580))
-
-
+    Malfuction_show = True
+    if Malfuction_show == True:
+        window.blit(Malfuction_image, (1050, 350))
+        pygame.draw.rect(window, Red,(1177, 532, 301, 99))
+        Repair_message = my_font.render('Repair', False, (0, 0, 0))
+        window.blit(Repair_message, (1275,550))
+        Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
+        window.blit(Repair_cost, (1275, 580))
+    if event.type == pygame.MOUSEBUTTONDOWN and Malfuction_show == True:
+        mpos = pygame.mouse.get_pos()
+        if 1177 < mpos[0] < 1478 and 532 < mpos[1] < 631:
+            if Money > 10:
+                Malfuction_show = False
+                Money - 10 
 
 #window loop
 while True:
@@ -121,23 +127,7 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
-        
-
     
-    if Malfuction_show == True:
-        window.blit(Malfuction_image, (1050, 350))
-        pygame.draw.rect(window, Red,(1177, 532, 301, 99))
-        Repair_message = my_font.render('Repair', False, (0, 0, 0))
-        window.blit(Repair_message, (1275,550))
-        Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
-        window.blit(Repair_cost, (1275, 580))
-    if event.type == pygame.MOUSEBUTTONDOWN and Malfuction_show == True:
-        mpos = pygame.mouse.get_pos()
-        if 1177 < mpos[0] < 1478 and 532 < mpos[1] < 631:
-            if Money > 10:
-                Malfuction_show = False 
-                
-                
     
     
     #Selected drink indicator
@@ -158,6 +148,9 @@ while True:
     #Next button
     Next_button = pygame.draw.ellipse(window, Red, (1788, 810, 35 , 35))
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1788 < mpos[0] < 1823 and 810 < mpos[1] < 845:
             nbutton = True 
@@ -199,6 +192,9 @@ while True:
     L_cup_innerb = pygame.draw.ellipse(window, Red , (1842, 898, Rbutton_size, Rbutton_size))
 
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1835 < mpos[0] < 1885 and 892 < mpos[1] < 942:
             showLcup = True
@@ -209,6 +205,9 @@ while True:
         
         
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
             showScup = True
@@ -220,7 +219,10 @@ while True:
     pygame.draw.line(window, Black, [935, 750], [1000, 750], 10)
     pygame.draw.ellipse(window, Red,(1005,726, 50, 50))
     
-    if event.type == pygame.MOUSEBUTTONDOWN and showLcup == True: 
+    if event.type == pygame.MOUSEBUTTONDOWN and showLcup == True:
+        Malfuction_Chance = random.randint(1,2)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
             Lsend = True 
@@ -233,6 +235,9 @@ while True:
             nbutton = False 
             Lcup_xpos = 700
     if event.type == pygame.MOUSEBUTTONDOWN and showScup == True:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
             Ssend = True 
@@ -338,12 +343,18 @@ while True:
     #On / off buttons
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         if 15 < mpos[0] < 49 and 75 < mpos[1] < 109:
             Water_bS_ON = True
             Water_bS = False
             Water_bL = True
             Water_bL_ON = False
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 65 < mpos[0] < 99 and 75 < mpos[1] < 109:
             Water_bL_ON = True
@@ -352,6 +363,9 @@ while True:
             Water_bS_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 122 < mpos[0] < 156 and 75 < mpos[1] < 109:
             Milk_bS_ON = True
@@ -359,6 +373,9 @@ while True:
             Milk_bL = True
             Milk_bL_ON = False
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 175 < mpos[0] < 209 and 75 < mpos[1] < 109:
             Milk_bL_ON = True
@@ -367,6 +384,9 @@ while True:
             Milk_bS_ON = False
 
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 240 < mpos[0] < 274 and 75 < mpos[1] < 109:
             Coffe_bS_ON = True
@@ -375,6 +395,9 @@ while True:
             Coffe_bL_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 295 < mpos[0] < 329 and 75 < mpos[1] < 109:
             Coffe_bL_ON = True
@@ -383,6 +406,9 @@ while True:
             Coffe_bS_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 360 < mpos[0] < 394 and 75 < mpos[1] < 109:
             Choco_bS_ON = True
@@ -391,6 +417,9 @@ while True:
             Choco_bL_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 415 < mpos[0] < 449 and 75 < mpos[1] < 109:
             Choco_bL_ON = True
@@ -399,6 +428,9 @@ while True:
             Choco_bS_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 484 < mpos[0] < 518 and 75 < mpos[1] < 109:
             Gtea_bS_ON = True
@@ -407,6 +439,9 @@ while True:
             Gtea_bL_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 540 < mpos[0] < 574 and 75 < mpos[1] < 109:
             Gtea_bL_ON = True
@@ -415,6 +450,9 @@ while True:
             Gtea_bS_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 610 < mpos[0] < 644 and 75 < mpos[1] < 109:
             Blacktea_bS_ON = True
@@ -423,6 +461,9 @@ while True:
             Blacktea_bL_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 664 < mpos[0] < 698 and 75 < mpos[1] < 109:
             Blacktea_bL_ON = True
@@ -431,6 +472,9 @@ while True:
             Blacktea_bS_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 730 < mpos[0] < 764 and 75 < mpos[1] < 109:
             Juice_bS_ON = True
@@ -439,6 +483,9 @@ while True:
             Juice_bL_ON = False
 
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 785 < mpos[0] < 819 and 75 < mpos[1] < 109:
             Juice_bL_ON = True
@@ -523,6 +570,9 @@ while True:
     
     
     if event.type == pygame.MOUSEBUTTONDOWN:
+        Malfuction_Chance = random.randint(1,100)
+        if Malfuction_Chance == 69:
+            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 933 < mpos[0] < 993 and 257 < mpos[1] < 317:
             if Water_bS_ON == True and Coffe_bS_ON == True and Milk_bS_ON == True:
@@ -602,7 +652,7 @@ while True:
                 
                 
                 
-                al
+                
     
     
          
