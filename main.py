@@ -76,11 +76,10 @@ Off_button = 15
 Make_BY = 350
 Makerspeed = 5
 Maker_Down_S = False
-
-
-
-
-
+Maker_Down_L = False 
+Miliseconds_S = 1000
+Maker_UP = pygame.USEREVENT + 1
+MAKER_UPP = False 
 
 
 #Window creation
@@ -509,28 +508,83 @@ while True:
             if Water_bS_ON == True and Coffe_bS_ON == True and Milk_bS_ON == True:
                 if showScup == True:
                     Maker_Down_S = True
-            if Water_bS_ON == True and Gtea_bS_ON == True:
+            elif  Water_bS_ON == True and Gtea_bS_ON == True:
                 if showScup == True:
                     Maker_Down_S = True
-            if Water_bS_ON == True  and Choco_bS_ON == True:
+            elif Water_bS_ON == True  and Choco_bS_ON == True:
                 if showScup == True:
                     Maker_Down_S = True
-            if Juice_bS_ON == True:
+            elif  Juice_bS_ON == True:
                 if showScup == True:
                     Maker_Down_S = True
-            if Water_bS_ON == True  and Blacktea_bS_ON == True:
+            elif  Water_bS_ON == True  and Blacktea_bS_ON == True:
                 if showScup == True:
                     Maker_Down_S = True
-            if Water_bS_ON == True and Coffe_bS_ON == True:
+            elif  Water_bS_ON == True and Coffe_bS_ON == True:
                 if showScup == True:
                     Maker_Down_S = True
-                
+                    
+            elif Water_bL_ON == True and Coffe_bL_ON == True and Milk_bL_ON == True:
+                if showLcup == True:
+                    Maker_Down_L = True
+            elif Water_bL == True and Gtea_bL_ON == True:
+                if showLcup == True:
+                    Maker_Down_L = True 
+            elif Water_bL_ON == True and Choco_bL_ON == True:
+                if showLcup == True:
+                    Maker_Down_L = True
+            elif Juice_bL_ON == True:
+                if showLcup == True:
+                    Maker_Down_L = True
+            elif Water_bL_ON == True and Blacktea_bL_ON == True:
+                if showLcup == True:
+                    Maker_Down_L = True
+            elif Water_bL_ON == True and Coffe_bL_ON == True:
+                if showLcup == True:
+                    Maker_Down_L = True
+                    
             
                     
     
     if Maker_Down_S == True:
-        if Make_BY <= 540:
+        if Make_BY <= 537:
             Make_BY += Makerspeed
+            if Make_BY <= 535:
+                pygame.time.set_timer(Maker_UP, 10000)
+    
+    if event.type == Maker_UP:
+        Maker_Down_S = False
+        Maker_Down_L = False
+        MAKER_UPP = True
+    if MAKER_UPP == True:
+        if Make_BY >= 300:
+            Make_BY -= Makerspeed
+            if Make_BY <= 300:
+                MAKER_UPP = False 
+                
+    
+
+       
+    
+        
+            
+            
+    if Maker_Down_L == True:
+        if Make_BY <= 412:
+            Make_BY += Makerspeed
+            if Make_BY <= 410:
+                pygame.time.set_timer(Maker_UP, 15000) 
+            
+            
+    if event.type == Maker_UP:
+        Maker_Down_S = False
+        Maker_Down_L = False
+        MAKER_UPP = True
+    if MAKER_UPP == True:
+        if Make_BY >= 300:
+            Make_BY -= Makerspeed
+            if Make_BY <= 300:
+                MAKER_UPP = False 
     
     
          
