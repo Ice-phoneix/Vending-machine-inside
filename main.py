@@ -81,9 +81,10 @@ Maker_Down_L = False
 Miliseconds_S = 1000
 Maker_UP = pygame.USEREVENT + 1
 MAKER_UPP = False 
-Money = 999
-Malfuction_message = 'Something'
-Malfuction_show = True 
+Money = 9990
+Broken_part = 'Something'
+Malfuction_show = True
+Malfuction = False
 #Window creation
 window = pygame.display.set_mode((Resolution_X, Resolution_Y))
 pygame.display.set_caption('Vending machine game')
@@ -94,21 +95,7 @@ FPSclock = pygame.time.Clock()
 
 #subprograms
  
-def Malfuction():
-    Malfuction_show = True
-    if Malfuction_show == True:
-        window.blit(Malfuction_image, (1050, 350))
-        pygame.draw.rect(window, Red,(1177, 532, 301, 99))
-        Repair_message = my_font.render('Repair', False, (0, 0, 0))
-        window.blit(Repair_message, (1275,550))
-        Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
-        window.blit(Repair_cost, (1275, 580))
-    if event.type == pygame.MOUSEBUTTONDOWN and Malfuction_show == True:
-        mpos = pygame.mouse.get_pos()
-        if 1177 < mpos[0] < 1478 and 532 < mpos[1] < 631:
-            if Money > 10:
-                Malfuction_show = False
-                Money - 10 
+
 
 #window loop
 while True:
@@ -127,6 +114,14 @@ while True:
     
     #Background
     window.blit(Background, (0, 0))
+    
+    
+    # money
+  
+    
+    
+    
+    
     
     
     
@@ -148,13 +143,15 @@ while True:
     #Next button
     Next_button = pygame.draw.ellipse(window, Red, (1788, 810, 35 , 35))
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1788 < mpos[0] < 1823 and 810 < mpos[1] < 845:
-            nbutton = True 
-            drink = random.randint(1,12)
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Next Button Malfunction' 
+            elif 1 < Malfuction_Chance < 99:
+                nbutton = True 
+                drink = random.randint(1,12)
 
 
     if nbutton == True:
@@ -192,12 +189,14 @@ while True:
     L_cup_innerb = pygame.draw.ellipse(window, Red , (1842, 898, Rbutton_size, Rbutton_size))
 
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1835 < mpos[0] < 1885 and 892 < mpos[1] < 942:
-            showLcup = True
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'L - Cup malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                showLcup = True
     
     if showLcup:
         window.blit(Lcup_load, (Lcup_xpos, Lcup_ypos))
@@ -205,12 +204,14 @@ while True:
         
         
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1715 < mpos[0] < 1765 and 892 < mpos[1] < 942:
-            showScup = True
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'S - Cup malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                showScup = True
     if showScup:
          window.blit(Scup_load, (Scup_xpos, 525))
         
@@ -220,12 +221,14 @@ while True:
     pygame.draw.ellipse(window, Red,(1005,726, 50, 50))
     
     if event.type == pygame.MOUSEBUTTONDOWN and showLcup == True:
-        Malfuction_Chance = random.randint(1,2)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
-            Lsend = True 
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Send button malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Lsend = True 
     if Lsend == True:
         if (Lcup_xpos + 206) > 0:
             Lcup_xpos -= speed
@@ -235,12 +238,14 @@ while True:
             nbutton = False 
             Lcup_xpos = 700
     if event.type == pygame.MOUSEBUTTONDOWN and showScup == True:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 1000 < mpos[0] < 1060 and 722 < mpos[1] < 782:
-            Ssend = True 
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Send button malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Ssend = True 
     if Ssend == True:
         if (Scup_xpos + 168) > 0:
             Scup_xpos -= speed
@@ -343,155 +348,183 @@ while True:
     #On / off buttons
     if event.type == pygame.MOUSEBUTTONDOWN:
         mpos = pygame.mouse.get_pos()
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         if 15 < mpos[0] < 49 and 75 < mpos[1] < 109:
-            Water_bS_ON = True
-            Water_bS = False
-            Water_bL = True
-            Water_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Water selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Water_bS_ON = True
+                Water_bS = False
+                Water_bL = True
+                Water_bL_ON = False
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 65 < mpos[0] < 99 and 75 < mpos[1] < 109:
-            Water_bL_ON = True
-            Water_bL = False
-            Water_bS = True 
-            Water_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Water selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Water_bL_ON = True
+                Water_bL = False
+                Water_bS = True 
+                Water_bS_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 122 < mpos[0] < 156 and 75 < mpos[1] < 109:
-            Milk_bS_ON = True
-            Milk_bS = False
-            Milk_bL = True
-            Milk_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Milk selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Milk_bS_ON = True
+                Milk_bS = False
+                Milk_bL = True
+                Milk_bL_ON = False
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 175 < mpos[0] < 209 and 75 < mpos[1] < 109:
-            Milk_bL_ON = True
-            Milk_bL = False
-            Milk_bS = True
-            Milk_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Milk selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Milk_bL_ON = True
+                Milk_bL = False
+                Milk_bS = True
+                Milk_bS_ON = False
 
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 240 < mpos[0] < 274 and 75 < mpos[1] < 109:
-            Coffe_bS_ON = True
-            Coffe_bS = False
-            Coffe_bL = True
-            Coffe_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Coffe selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Coffe_bS_ON = True
+                Coffe_bS = False
+                Coffe_bL = True
+                Coffe_bL_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 295 < mpos[0] < 329 and 75 < mpos[1] < 109:
-            Coffe_bL_ON = True
-            Coffe_bL = False
-            Coffe_bS = True
-            Coffe_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Coffe selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Coffe_bL_ON = True
+                Coffe_bL = False
+                Coffe_bS = True
+                Coffe_bS_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 360 < mpos[0] < 394 and 75 < mpos[1] < 109:
-            Choco_bS_ON = True
-            Choco_bS = False
-            Choco_bL = True
-            Choco_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Choco selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Choco_bS_ON = True
+                Choco_bS = False
+                Choco_bL = True
+                Choco_bL_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 415 < mpos[0] < 449 and 75 < mpos[1] < 109:
-            Choco_bL_ON = True
-            Choco_bL = False
-            Choco_bS = True
-            Choco_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Choco selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Choco_bL_ON = True
+                Choco_bL = False
+                Choco_bS = True
+                Choco_bS_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 484 < mpos[0] < 518 and 75 < mpos[1] < 109:
-            Gtea_bS_ON = True
-            Gtea_bS = False
-            Gtea_bL = True
-            Gtea_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Green tea selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Gtea_bS_ON = True
+                Gtea_bS = False
+                Gtea_bL = True
+                Gtea_bL_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 540 < mpos[0] < 574 and 75 < mpos[1] < 109:
-            Gtea_bL_ON = True
-            Gtea_bL = False
-            Gtea_bS = True
-            Gtea_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Green tea selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Gtea_bL_ON = True
+                Gtea_bL = False
+                Gtea_bS = True
+                Gtea_bS_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 610 < mpos[0] < 644 and 75 < mpos[1] < 109:
-            Blacktea_bS_ON = True
-            Blacktea_bS = False
-            Blacktea_bL = True
-            Blacktea_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Black tea selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Blacktea_bS_ON = True
+                Blacktea_bS = False
+                Blacktea_bL = True
+                Blacktea_bL_ON = False
             
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 664 < mpos[0] < 698 and 75 < mpos[1] < 109:
-            Blacktea_bL_ON = True
-            Blacktea_bL = False
-            Blacktea_bS = True
-            Blacktea_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Black tea selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Blacktea_bL_ON = True
+                Blacktea_bL = False
+                Blacktea_bS = True
+                Blacktea_bS_ON = False
     
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 730 < mpos[0] < 764 and 75 < mpos[1] < 109:
-            Juice_bS_ON = True
-            Juice_bS = False
-            Juice_bL = True
-            Juice_bL_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Juice selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Juice_bS_ON = True
+                Juice_bS = False
+                Juice_bL = True
+                Juice_bL_ON = False
 
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 785 < mpos[0] < 819 and 75 < mpos[1] < 109:
-            Juice_bL_ON = True
-            Juice_bL = False
-            Juice_bS = True
-            Juice_bS_ON = False
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Juice selection malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                Juice_bL_ON = True
+                Juice_bL = False
+                Juice_bS = True
+                Juice_bS_ON = False
     
     #Turn off button for drink maker
     pygame.draw.ellipse(window, Red, (49.5, 100, Off_button, Off_button))
@@ -570,48 +603,50 @@ while True:
     
     
     if event.type == pygame.MOUSEBUTTONDOWN:
-        Malfuction_Chance = random.randint(1,100)
-        if Malfuction_Chance == 69:
-            Malfuction()
         mpos = pygame.mouse.get_pos()
         if 933 < mpos[0] < 993 and 257 < mpos[1] < 317:
-            if Water_bS_ON == True and Coffe_bS_ON == True and Milk_bS_ON == True:
-                if showScup == True:
-                    Maker_Down_S = True
-            elif  Water_bS_ON == True and Gtea_bS_ON == True:
-                if showScup == True:
-                    Maker_Down_S = True
-            elif Water_bS_ON == True  and Choco_bS_ON == True:
-                if showScup == True:
-                    Maker_Down_S = True
-            elif  Juice_bS_ON == True:
-                if showScup == True:
-                    Maker_Down_S = True
-            elif  Water_bS_ON == True  and Blacktea_bS_ON == True:
-                if showScup == True:
-                    Maker_Down_S = True
-            elif  Water_bS_ON == True and Coffe_bS_ON == True:
-                if showScup == True:
-                    Maker_Down_S = True
-                    
-            elif Water_bL_ON == True and Coffe_bL_ON == True and Milk_bL_ON == True:
-                if showLcup == True:
-                    Maker_Down_L = True
-            elif Water_bL == True and Gtea_bL_ON == True:
-                if showLcup == True:
-                    Maker_Down_L = True 
-            elif Water_bL_ON == True and Choco_bL_ON == True:
-                if showLcup == True:
-                    Maker_Down_L = True
-            elif Juice_bL_ON == True:
-                if showLcup == True:
-                    Maker_Down_L = True
-            elif Water_bL_ON == True and Blacktea_bL_ON == True:
-                if showLcup == True:
-                    Maker_Down_L = True
-            elif Water_bL_ON == True and Coffe_bL_ON == True:
-                if showLcup == True:
-                    Maker_Down_L = True
+            Malfuction_Chance = random.randint(1,100)
+            if Malfuction_Chance == 100:
+                Malfuction = True
+                Broken_part = 'Make button malfunction'
+            elif 1 < Malfuction_Chance < 99:
+                if Water_bS_ON == True and Coffe_bS_ON == True and Milk_bS_ON == True:
+                    if showScup == True:
+                        Maker_Down_S = True
+                elif  Water_bS_ON == True and Gtea_bS_ON == True:
+                    if showScup == True:
+                        Maker_Down_S = True
+                elif Water_bS_ON == True  and Choco_bS_ON == True:
+                    if showScup == True:
+                        Maker_Down_S = True
+                elif  Juice_bS_ON == True:
+                    if showScup == True:
+                        Maker_Down_S = True
+                elif  Water_bS_ON == True  and Blacktea_bS_ON == True:
+                    if showScup == True:
+                        Maker_Down_S = True
+                elif  Water_bS_ON == True and Coffe_bS_ON == True:
+                    if showScup == True:
+                        Maker_Down_S = True
+                        
+                elif Water_bL_ON == True and Coffe_bL_ON == True and Milk_bL_ON == True:
+                    if showLcup == True:
+                        Maker_Down_L = True
+                elif Water_bL == True and Gtea_bL_ON == True:
+                    if showLcup == True:
+                        Maker_Down_L = True 
+                elif Water_bL_ON == True and Choco_bL_ON == True:
+                    if showLcup == True:
+                        Maker_Down_L = True
+                elif Juice_bL_ON == True:
+                    if showLcup == True:
+                        Maker_Down_L = True
+                elif Water_bL_ON == True and Blacktea_bL_ON == True:
+                    if showLcup == True:
+                        Maker_Down_L = True
+                elif Water_bL_ON == True and Coffe_bL_ON == True:
+                    if showLcup == True:
+                        Maker_Down_L = True
                     
             
                     
@@ -650,8 +685,24 @@ while True:
             if Make_BY <= 300:
                 MAKER_UPP = False
                 
-                
-                
+    if Malfuction == True: 
+        Malfuction_show = True
+        if Malfuction_show == True:
+            window.blit(Malfuction_image, (1050, 350))
+            pygame.draw.rect(window, Red,(1177, 532, 301, 99))
+            Repair_message = my_font.render('Repair', False, (0, 0, 0))
+            window.blit(Repair_message, (1275,550))
+            Repair_cost = my_font.render('(10Kč)', False, (0, 0, 0))
+            window.blit(Repair_cost, (1275, 580))
+            Whatbroke_message = my_font.render(Broken_part, False, (0, 0, 0))
+            window.blit(Whatbroke_message, (1990, 475)) 
+        if event.type == pygame.MOUSEBUTTONDOWN and Malfuction_show == True:
+            mpos = pygame.mouse.get_pos()
+            if 1177 < mpos[0] < 1478 and 532 < mpos[1] < 631:
+                if Money > 10:
+                    Malfuction_show = False
+                    Money - 10                
+                    Malfuction = False 
                 
     
     
